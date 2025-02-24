@@ -6,7 +6,7 @@ import { RegisterUser } from '../Model/RegisterUser';
   providedIn: 'root',
 })
 export class RegistrationService {
- 
+
 
   constructor(private http: HttpClient) { }
 
@@ -29,14 +29,15 @@ export class RegistrationService {
                 res[index].city,
                 res[index].pinCode,
                 res[index].state,
-                index
+                index,
+                res[index].password
             )
           );
         }
         return tempArray;
       })
     );
-     
+
   }
   deleteUser(id:string):Observable<any>{
     console.log("id = "+id);

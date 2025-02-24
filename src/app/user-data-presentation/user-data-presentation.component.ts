@@ -32,14 +32,13 @@ export class UserDataPresentationComponent implements OnInit {
     });
   }
   deleteUser(id: string | undefined) {
-    if (!id) { // This handles both null and undefined cases
+    if (!id) {
       alert("User not found");
-      return; // Stop further execution
+      return;
     }
-    
+
     this.registrationService.deleteUser(id).subscribe({
       next: () => {
-        // Remove the user from the local list after successful deletion
         this.users = this.users.filter(user => user.id !== id);
         alert("User deleted successfully");
       },
@@ -49,6 +48,6 @@ export class UserDataPresentationComponent implements OnInit {
       }
     });
   }
-  
+
 
 }

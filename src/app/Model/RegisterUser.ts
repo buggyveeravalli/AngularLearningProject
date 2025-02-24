@@ -10,5 +10,6 @@ export class RegisterUser {
       public pincode: string,
       public state: string,
       public id:string,
+      public password:string
   ){}
 }

@@ -7,11 +7,9 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
-
 export interface CanComponentDeactivate {
   canDeactivate: () => Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree;
 }
-
 @Injectable({
   providedIn: 'root',
 })
@@ -29,7 +27,6 @@ export class NavigationGuard implements CanDeactivate<CanComponentDeactivate> {
         }
       });
   }
-
   canDeactivate(
     component: CanComponentDeactivate
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
