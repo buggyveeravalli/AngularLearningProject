@@ -1,0 +1,51 @@
+<div *ngIf="isLoading" class="loading-overlay">
+  <div class="loader"></div>
+  <p>Submitting, please wait...</p>
+</div>
+
+<h1 style="text-align: center;">User Details</h1>
+
+<div class="Table_Container" *ngIf="!isLoading && users.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Gender</th>
+        <th>PhoneNumber</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>PinCode</th>
+        <th>State</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.phoneNumber }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.city }}</td>
+        <td>{{ user.pincode }}</td>
+        <td>{{ user.state }}</td>
+        <td>
+          <span id="delete-btn" (click)="deleteUser(user.id)">
+            <svg style="height: 2rem; width: 2rem; cursor: pointer;" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+              <path
+                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+            </svg>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!isLoading && users.length === 0">
+  <p style="text-align: center;">No user data available.</p>
+</div>

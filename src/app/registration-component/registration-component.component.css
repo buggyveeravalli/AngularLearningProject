@@ -1,0 +1,203 @@
+body {
+  margin: 0px;
+}
+
+.body {
+  font-family: Arial, sans-serif;
+  background-color: #4a90e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding: 2rem;
+}
+
+.Registration_Main_div {
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 80%;
+}
+
+.Avatar_div {
+  width: 150%;
+  background: rgb(129, 127, 127);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.Avatar_div h3,
+h5 {
+  text-align: left;
+}
+
+.RegistrationData_div {
+  width: 170%;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+button:not([disabled])  {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:not([disabled]):hover {
+  background: #74b3f3;
+  transition-duration: 0.4s;
+}
+button[disabled]{
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor:not-allowed;
+  font-size: 16px;
+}
+
+.UserName_div,
+.Password_div {
+  display: flex;
+  gap: 10px;
+}
+
+.PhoneNumber_div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.FirstName,
+.LastName,
+.PhoneNumber_Selection,
+.PhoneNumber,
+.password,
+.confirmPassword {
+  width: 50%;
+}
+
+.Address_Div{
+  gap: 1rem;
+}
+.country_div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.city,
+.country {
+  width: 48%;
+}
+.PinCode{
+  width: 48%;
+  justify-content: left;
+}
+.city input {
+  width: 150%;
+}
+
+
+.country {
+  width: 150%;
+}
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+  z-index: 1000;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite
+}
+.loader::before , .loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #FFF;
+  animation: prixClipFix 2s linear infinite ;
+}
+.loader::after{
+  border-color: #038cfd;
+  animation: prixClipFix 2s linear infinite , rotate 0.5s linear infinite reverse;
+  inset: 6px;
+}
+
+@keyframes rotate {
+  0%   {transform: rotate(0deg)}
+  100%   {transform: rotate(360deg)}
+}
+
+@keyframes prixClipFix {
+    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+}
+.navbar {
+  background-color: #2874f0;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,205 @@
+<nav class="navbar">
+  <button type="button" (click)="goBackToLogin()"  routerLinkActive="router-link-active" >Back</button>
+</nav>
+<div class="body">
+  
+  
+  
+  <div class="Registration_Main_div">
+    
+    <div *ngIf="isLoading" class="loading-overlay">
+      <div class="loader"></div>
+      <p>Submitting, please wait...</p>
+    </div>
+  
+    <div class="Avatar_div">
+      <span *ngIf="registrationForm.controls['gender'].touched">
+        <img *ngIf="registrationForm.value.gender=='Male'" style="height: 300px; width: 300px; border-radius: 2rem"
+          src="data:image/jpeg;base64,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"
+          alt="Male">
+
+        <img *ngIf="registrationForm.value.gender=='Female'" style="height: 300px; width: 300px; border-radius: 2rem;"
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIQDxUQExIQFhAVEBAVExAWFRYQEhITFRYYFhUYFhYYHSggGBolHRUWITEiJSkrOi46Fx8/ODMvNygtLisBCgoKDg0OGxAQGisdICU4LS0tLS0vLS0rLS0rLS01LS0tLSstLS0tLS0tLS0tKy0tLS0tLSs3LS0tLS0tKy0tN//AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABAcDBQYCCAH/xABDEAACAQIBCAcECQIDCQAAAAAAAQIDEQQFBhIhMUFRYQcTInGBkbEyUqHBFCNCYoKistHwM0NjcsI1U2RzdIOSs/H/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAQMEAgX/xAAkEQEBAAICAgIBBQEAAAAAAAAAAQIRAwQSMSFBUSIyYXGBQv/aAAwDAQACEQMRAD8AvEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB5nUS2tIwTxsdyb+A0jcSQQXjnuS9Tw8ZLl5E6qPKNiDXfTJcvI9LHPel6DVPKJ4Iscat6a+JnhVjLY18yNJ3HsABIAAAAAAAAAAAAAAAAAAAAAAETEYu2qO3iEW6Z6tZR2+W8hVcXJ7NS+JgbvrPw7kcXK0YB5qVFGLlJpRSu5NpJLi29iJcvQOMyx0iYek3GjGVaS+1fq6X/k1d+CtzObxHSNjJPsxw8Fw0ZSfm5fIoy7GE+1+PV5MvrS1wVLT6RManrWHlydNr0kjdZO6S4t2r0HFe/TlpLxhK2rxYnZ46nLqck+trABDyXlSjiodZRqRnHfbVKL4Si9cX3omF0svpnssuqz0sVKPNc/3JtHEKXfwNWBYmZWNyCDh8Xul5/uTkznSyXYACEgAAAAAAAAAAAAAARMbXt2Vt3hFunjF4m/ZWze+JEALJFVuwA81KijFyk0opNuT1JJK7b5AQst5XpYOi61V6tkYrXKct0Yre/QqHOTOavjpdt6NJPs0Ivsrg5e/Lm/BI851ZdljcQ6mtUo3jRh7sOLXvS2vwW4055vNzXO6np6vX68wm77AAZ2kAAEjAY6ph6iq0pyhNbJLeuDWxrky28z86oY6GhJKGJirzgvZmtmnC+7it1+5lOGfA4udCrGtTdqkJKUXz4Pimrprmy7i5bhf4U83DOSfy+gAQciZTjisPCvHUpx1x26MlqlHwaZOPTl3Nx49ll1QkYXEaOp+z6EcEkum4TP0g4KvbsvZuJxxVsuwAEJAAAAAAAAAABjr1NGN/LvNW3fWZ8bUvK25eu8jncivK/IACXIcZ0nZW6rDRw8X267elypRs5ebcV3aR2ZTOfuUOvyhVs7xp2pR/B7X53Mo7Gfjh/bR1cPLk/pzwAPMesAAAAfkpJK72AfoJuFyTUnUhRSfXztKUXq6qFrrT4Oz0nwvFbbogpkiwuifKNpVsM3qaVWC5q0Kn+jyZYxRebOUfo2MpVm7RU0p/8ufZnfuTv4F6HodXLeGvw8vt4az3+QAGllDZYSrpR5raa0y4apoyT3bGRYnG6raAA4WgAAAAAAAB5qztFvgj0RcfLs24v0ERfSA2ACxUAADHiKypwlN7IxlJ90Vd+h8/TqObc5e1JuUv8zd38WXfnZPRyfiX/wAPVXnFr5lHGHt35keh0p8WgB6p05SajFSlJ7IpOTfckY255BusHmri6v8AacF71R9WvL2vgdJk3MSnHXXqOb9yHYj4y9p+GiNjiMFg6laehShKc+EVs5yeyK5ux0uHze+jSimo1sfJaVKgtdGh/i1W9qW69lfYna529PCqlDq6EIU48VHUuej9qXf8dj94PBQpJ6N3KTvOpJ6U6kuMnv7ti3JIjadIWQciRw0W29OtU11az2yb1tLlfzKrxWHdKpKm9sJyi/wu3yLpOF6QMjWl9LgtT0Y1VweyMvHVHy4iUcW0Xnmvi3WwVCo3eTowUnxlHsyfnFlGFydHv+zKP/e/9szZ1L+qsXdn6JXRgA3vNAABtMNPSgnv2PwMpCyfLau5/wA+BNOKtl+AAEJAAAAAAg5QetLl6/8AwnGux3t+C+ZM9ucvSOADtWAADT54K+T8T/09R+SuUgXvnDT0sHiI8cNXX5JFEGDt/uj0el+2vVCjKpUjSgr1JyUYrdd73y3+BbWQsjU8JTUIK82lp1X7U3z4Lgtxw3RzhVUxk6r/ALVJ25Sm9FPyU/MssyZfhtgADh0AAAa/ODDdbhKtNWTdN2b2JrWn5o2Bhxv9Kf8Akn6MlCoMoYKVCo6crN2i01sakrplzZoUdDJ+Hjv6iEvGfb/1FOZbrOpXm1rd1CP4EoL4r4l8UKShCMFsjGMV3RVl6G7qT5tYe9fiR7ABuecAACRgn2+9P9zYmrwvtrv+RtDjJZh6AAQ6AAAAAA12O9vwRsSBlBdpPl/PUme3OXpFAB2rAABjxFPShKPvRkvNWPnqGxdyPoic1FOT1JJtvglrZ89Skm21qTbaXBPYYu39N/R/6/x13RZJaWJX2rUH4fWHflWZg4zqseoP2asJQ/F7cf0teJaZhz9t+PoABy6AAAIeWK6p4epN7FB3JhxvSNldU6Sw0f6lRXl92ns+OteDJk3UWuMyOtPEUU9sq9FPvlUV/Uv5nzzRm4OMo+1FxcXwlF3XxRf2Axca9GFaPs1IRmuWkr271s8Df1L7jzu7L+mpAANrCAADLhfbXebQ1uCXbXJM2Rxksw9AAIdAAAAAARcoR7KfB+pKPFaGlFrl8REX01IALFQAAOW6RMrrD4N00/rK96cVvUP7ku6z0e+aKhLuylknDKpLG146bp0205vShThBaVow9m97u7Td3tKVxNd1Kk6jVnOc5tcHOTk/izz+1L5br0+nZ46jBOUoyjUi7SjKMk+DTvF+DRcOQsqxxeHjWja7Vpx9ya9qP7cmioTqOjOs41a8dei403bddOSv36zLfTXPaxgfkZJq6P04dAAbsBhxuLhRpyq1HaEItyf7cW9iXMprKWPlisTOvL7T1R92K1Qj4L58TvekWvfBW3OtTXq/kV5TjZHePrbnKfOnvv2b95beZGHxOFTwleF6WudDEQenSaeuUb7Y+8rpbZcipC4Oj3KyxGCjBv6yjanJb9FL6uXjHV3xZp6uvNl7e/B04APReWAACZk+OtvwJphwkLQXPX5mY4q3GfAACEgAAAAAAANbjKejLk9f7mA2mJpaUbb9qNWdyqspqgMOMxdOjTdSrOMKcV2pyajFeLOByv0p0otww1Jz2/XVLwhycYW0peOiLZDHG26jL0n5dUYLBQfalozrW3RWuEO9uz7kuJW4qY11qkpycpTk3KU3tlJg8vmyuWW69jgwxxw1PkOr6N6GqvV3OVOC746UpfqicjWlZd+o77MKa+iaO+NWd+d0nf428Cuy+Nq3GzzkdLGTWwzLEPevkYAULrJWd4nkYpzb2nkDZJGhz3o6WCk/dqUpfmUX+or4srOmqo4Oq3viorvk0vnfwK1LcZfHarOzy0He5lZIxFFUsdh5Rq0qkXGvQv1c7KTjJRu9GTTjdNtcN5wROwOc+LwVlRqtU7tulKKnTbfJq6vyaL+DXn8s/Y34fC+QVjkfpW1qOKoWWq9Wi76+dOT2d0n3Fh5LynRxVNVaFSNSD3ranwknri+TPT28myxLMlCnpSS8+4xmxwdLRV3tfoLTGbqQADhaAAAAAAAAAAAaXOXFwwlCpipqTp046U1FaUnuVlzbWt6lteq7N0eakFJOMknFppxaumnqaa3oIs2+ZM5s46+UKunVdoJvq6KfYprlxlxk9vJalpzu+kjMKWAm8TQTlgpPWtrw7b9mX3OEvB7m+Gpw0mkLdfNTJ9RNwkLR79f7GVuxiqV4x58kQMVXk+S4GCceXJlv09C8uPHjr22CV3d+COw6P6/bq0+MYzXLRdm/zI5GErpPikzoswMofR8pUJN9mcnSl3VFZfm0TVeKXDwjLjzWZ+awAdrXyXRnrdON+K7L+BFlm9Rfvruf7oxXqZ/Wm2d3D7lcoDqo5vUeNR+K+SJNHJFCGymm/vXl6idTP70m93D62qTP6vahTh79RvvUF+8kcOmdp0tY9VMoKkraNClGNuEpdqXw0PI4o2Y8MmHhWLLnt5POPRjxELxfn5EOhjXd31xu7cUToTT1pmTLDLju2vHkx5MdNYTsiZYrYOsq1CejLUpLbCpH3Zx+0vTdZkSvDRk15dx0+YeZdTKdW70oYSEvra29v3KfGT4/Z37k/Ql3Nx52U1dVcmZeVo5Rw0cSoyiruM4O+qpG2kov7Ude1fBppdOYMBg6dClGjSioU4RUYQWxJfzaZyduZNAACQAAAAAAAAAAAAB4q01OLjJKUZJqUWrqSeppp7UU3n30XzpOWIwMZTpbZYVdqpT49VvnH7u1br7Fc4A+Sv54o8VFqPorO/o+wuUL1LdTiX/fgl2n/iQ2T79T1bSns5cxMdgbynSdSir/AF9K9SFuMlbShzurc2BpMBO8FybX88yTGTTTTtJNNPemtaZrsn1Um4t7bWe42AH0jm9lFYrC0q6+3Ti2uEra14O68DYlZ9DeWL06mDk9cH1lNfck+0l3S/WizABixVdU4SnJpRjFtvckkZTh+ljLHUYLqU+3Xehz0Ns33W1fjQFPZTxrxFepXle9SpOdntSb1LwVl4ELEztBvl66jIQsoVdWgtt7vkBFpLUZFK2u9uew3ebmaGMx9uoovq/9/P6uivxtdr8KZb+aPRjhsG1VrWxGIVmnJWpU3tWhT13a96V9mqwHCZk9HVbHuNfE6VLC7UraNaut2ivsw+89u7bpK78Dg6dCnGjShGFOCtGEVZJGcESa9Jtt9gAJQAAAAAAAAAAAAAAAAAAAAAOay9mHk/GtyqYeEajd3Vp3o1G+MnG2n+JM5LHdEVv6GKdt0a0E34zhb9JaQAqHI2ZGUsBiqdeEaVRRlaSp1UtKm9Ul9Yo67a1zSLcg20rqz3o9AD8ZVueGaeUco4yVRQpwpRWhS06iSa2uVoaTV3y2JFpgCqcB0Rzf9fFRjxjShpPwnO36TqcidHGTsK1JUOtqXT6yu+ud1sai+wnzUUdaAPxK2rcfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/9k="
+          alt="Female">
+      </span>
+      <h3>Name:{{registrationForm.value.firstName+""+registrationForm.value.lastName}}</h3>
+      <h5>PhoneNumber:{{registrationForm.value.phoneNumber}}</h5>
+      <h5>Email:{{registrationForm.value.email}}</h5>
+      <h5>State:{{registrationForm.value.state}}</h5>
+      <h5>Country:{{registrationForm.value.country}}</h5>
+    </div>
+    <div class="RegistrationData_div">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="UserName_div">
+          <div class="FirstName">
+            <label>Enter your FirstName</label>
+            <input type="text" placeholder="Enter your FirstName " formControlName="firstName" maxlength="16">
+            <span
+              *ngIf="registrationForm.controls['firstName'].invalid&&registrationForm.controls['firstName'].touched">
+              <small *ngIf="registrationForm.controls['firstName'].hasError('minlength')
+              " style="color: red;">First Name Should be 6 characters length</small>
+              <small *ngIf="registrationForm.controls['firstName'].hasError('maxlength')
+              " style="color: red;">Maximum Characters Exceed</small>
+              <small style="color:  red;" *ngIf="registrationForm.controls['firstName'].hasError('required')">FirsName
+                Must be required</small>
+            </span>
+          </div>
+          <div class="LastName">
+            <label>Enter your LastName</label>
+            <input type="text" placeholder="Enter your LastName " formControlName="lastName" maxlength="6">
+            <span *ngIf="registrationForm.controls['lastName'].invalid&&registrationForm.controls['lastName'].touched">
+              <small *ngIf="registrationForm.controls['lastName'].hasError('maxlength')
+              " style="color: red;">Maximum Characters Exceed</small>
+              <small style="color:  red;" *ngIf="registrationForm.controls['lastName'].hasError('required')">LastName
+                Must be required</small>
+            </span>
+          </div>
+        </div>
+        <div class="PhoneNumber_div">
+          <div class="PhoneNumber_Selection">
+            <label>Select your Gender</label>
+            <select id="Gender" formControlName="gender">
+              <option value="" disabled selected>Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <span *ngIf="registrationForm.controls['gender'].touched && registrationForm.controls['gender'].invalid">
+              <small style="color: red;" *ngIf="registrationForm.controls['gender'].hasError('required')">Gender
+                Required</small>
+            </span>
+          </div>
+          <div class="PhoneNumber">
+            <label>Enter your PhoneNumber</label>
+            <input type="text" placeholder="Enter your PhoneNumber " formControlName="phoneNumber">
+            <span
+              *ngIf="registrationForm.controls['phoneNumber'].touched && registrationForm.controls['phoneNumber'].invalid">
+              <small *ngIf="registrationForm.controls['phoneNumber'].hasError('minlength')
+                    ||registrationForm.controls['phoneNumber'].hasError('maxlength')
+                    || registrationForm.controls['phoneNumber'].hasError('pattern')
+                    " style="color: red;">Enter Valid PhoneNumber</small>
+              <small style="color: red;" *ngIf="registrationForm.controls['phoneNumber'].hasError('required')">Phone
+                Number Required</small>
+            </span>
+          </div>
+        </div>
+        <div class="email_div">
+          <label>Enter your Email</label>
+          <input type="text" placeholder="Enter your Email " formControlName="email">
+          <span *ngIf="registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid">
+            <small style="color:  red;" *ngIf="registrationForm.controls['email'].hasError('pattern')">Invalid
+              Email</small>
+            <small style="color: red;" *ngIf="registrationForm.controls['email'].hasError('required')">Email
+              Required</small>
+          </span>
+        </div>
+        <div class="Address_Div">
+          <div class="Entering_Address">
+            <label for="address">Address Line </label>
+            <input type="text" id="address" placeholder="Enter Street Address" formControlName="address">
+            <span *ngIf="registrationForm.controls['address'].touched && registrationForm.controls['address'].invalid">
+              <small style="color: red;" *ngIf="registrationForm.controls['address'].hasError('required')">Address
+                Required</small>
+            </span>
+            <div class="city">
+              <label for="city">City</label>
+              <input type="text" id="city" formControlName="city" placeholder="Enter City">
+              <span *ngIf="registrationForm.controls['city'].touched && registrationForm.controls['city'].invalid">
+                <small style="color: red;" *ngIf="registrationForm.controls['city'].hasError('required')">City
+                  Required</small>
+              </span>
+            </div>
+          </div>
+          <div class="PinCode">
+            <label>Enter your PinCode</label>
+            <input type="text" placeholder="Enter your PinCode " formControlName="pinCode">
+            <span *ngIf="registrationForm.controls['pinCode'].touched && registrationForm.controls['pinCode'].invalid">
+              <small *ngIf="registrationForm.controls['pinCode'].hasError('pattern')
+                    " style="color: red;">Enter Valid PinCode</small>
+              <small style="color: red;" *ngIf="registrationForm.controls['pinCode'].hasError('required')">PinCode
+                Required</small>
+            </span>
+          </div>
+        </div>
+        <div class="country_div">
+          <div class="state_zipCode">
+            <label for="state">State</label>
+            <select id="state" formControlName="state">
+              <option value="" disabled selected>Select a state</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+            </select>
+            <span *ngIf="registrationForm.controls['state'].touched && registrationForm.controls['state'].invalid">
+              <small style="color: red;" *ngIf="registrationForm.controls['state'].hasError('required')">State
+                Required</small>
+            </span>
+            <div class="country">
+              <label for="country">Country</label>
+              <input type="text" id="country" formControlName="country" placeholder="Enter Country">
+              <span
+                *ngIf="registrationForm.controls['country'].touched && registrationForm.controls['country'].invalid">
+                <small style="color: red;" *ngIf="registrationForm.controls['country'].hasError('required')">Country
+                  Required</small>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="Password_div">
+          <div class="password">
+            <label>Enter Password</label>
+            <input type="password" placeholder="Enter Password " formControlName="password">
+            <span
+              *ngIf="registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid">
+              <small style="color: red;" *ngIf="registrationForm.controls['password'].hasError('required')">Password
+                Required</small>
+            </span>
+          </div>
+          <div class="confirmPassword">
+            <label>Confirm Password</label>
+            <input type="password" placeholder="Confirm Password " formControlName="confirmPassword">
+            <span
+              *ngIf="registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid">
+              <small style="color: red;"
+                *ngIf="registrationForm.controls['confirmPassword'].hasError('required')">Confirm Required</small>
+            </span>
+          </div>
+        </div>
+        <div>
+          <div style="margin-top: 1rem;">
+            <span *ngIf="registrationForm.hasError('passwordMismatch')">
+              <small style="color: red;" *ngIf="registrationForm.controls['confirmPassword'].touched">
+                Password is Mismatched
+              </small>
+            </span>
+          </div>
+        </div>
+        <button type="submit" [disabled]="registrationForm.invalid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

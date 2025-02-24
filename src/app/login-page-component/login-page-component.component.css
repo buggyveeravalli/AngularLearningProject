@@ -1,0 +1,168 @@
+/* Full Page Centering */
+#Login_Page_Div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #f1f3f6;
+}
+
+/* Main Container */
+#login_Main_Div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+}
+
+/* Image Section */
+.login_image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2874f0;
+  padding: 2rem;
+  min-height: 300px;
+}
+
+.login_image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Form Section */
+#login_Details_div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+/* Input Fields */
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s;
+}
+
+input:focus {
+  border-color: #2874f0;
+}
+
+/* Password Input with Eye Icon */
+.input-wrapper {
+  position: relative;
+}
+
+.password_toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Buttons */
+#Input_div_Button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+#login-btn {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 48%;
+  transition: background 0.3s;
+}
+
+#login-btn:not([disabled]) {
+  background-color: #fb641b;
+  color: white;
+}
+
+#login-btn:not([disabled]):hover {
+  background-color: #f5721b;
+}
+
+#login-btn[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+#register-btn{
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 48%;
+  transition: background 0.3s;
+  background-color: #fb641b;
+  color: white;
+}
+@media (max-width: 1024px) {
+  #login_Main_Div {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .login_image {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  #login_Details_div {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  #Input_div_Button {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  #Input_div_Button button {
+    width: 100%;
+  }
+}
+
+/* Small Screens (Phones) */
+@media (max-width: 768px) {
+  #Login_Page_Div {
+    padding: 1.5rem;
+  }
+
+  .login_image {
+    min-height: 200px;
+  }
+
+  #login_Details_div {
+    padding: 1rem;
+  }
+
+  input {
+    padding: 0.6rem;
+  }
+
+  #Input_div_Button {
+    gap: 0.5rem;
+  }
+}
+  
