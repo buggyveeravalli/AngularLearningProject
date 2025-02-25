@@ -1,0 +1,2 @@
+<app-nav-bar-component [cartCount]="cartTotal" [cartItems]="cartItems"></app-nav-bar-component>
+<app-products-components (cartCountChanged)="updateCartCount($event)" (cartItemsChanged)="updateCartItems($event)"></app-products-components>

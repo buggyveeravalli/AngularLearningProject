@@ -1,0 +1,28 @@
+
+<div class="products_container">
+    <div class="product_card" *ngFor="let item of products"  >
+        <div (click)="ViewProduct(item?.path)"> 
+        <img  [src]="item?.imageUrl">
+        </div>
+        <h2>{{item?.name}}</h2>
+        <h5>{{item?.description}}</h5>
+        <h5 style="color: red;" >Price {{item?.price}}</h5>
+        <div class="button_Container">
+            <button
+            [ngClass]="{'out_of_stock':item.availableStock<0}"
+            [disabled]="item.availableStock==0" id="buy_btn">Buy</button>
+            <div class ='AddToCart'>
+                <button
+                [ngClass]="{'AddtoCart_Valid' : item.addToCart>=10 || item.availableStock==0}"
+                    [disabled]="item.addToCart>=10 ||item.availableStock==0|| overAllCartCount>10"
+                    id="addToCart_btn_p" (click)="AddToCart(item.id)" >+</button>
+
+                <span>{{item.addToCart}}</span>
+
+                <button [ngClass]="{'removeCart_Valid' : item.addToCart<=0}"
+                    [disabled]="item.addToCart<=0"
+                    id="addToCart_btn_M"  (click)="RemoveFromCart(item.id)">-</button>
+            </div>
+        </div>
+    </div>
+</div>
